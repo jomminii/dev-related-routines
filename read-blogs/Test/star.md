@@ -1,18 +1,45 @@
 # Http
 ## IntelliJ
-[IntelliJ Http Client document](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html)
+### [IntelliJ Http Client document](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html)
 
 - http client 관련 intellij 문서
 - 다음에 사용할 때 한번 정독하고 사용해봐야겠다.
 <br>
 
-[인텔리제이 .http로 postman 대체하는 방법](https://otrodevym.tistory.com/entry/intellij-%EC%9D%B8%ED%85%94%EB%A6%AC%EC%A0%9C%EC%9D%B4-http%EB%A1%9C-postman-%EB%8C%80%EC%B2%B4%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95)
+### [인텔리제이 .http로 postman 대체하는 방법](https://otrodevym.tistory.com/entry/intellij-%EC%9D%B8%ED%85%94%EB%A6%AC%EC%A0%9C%EC%9D%B4-http%EB%A1%9C-postman-%EB%8C%80%EC%B2%B4%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95)
 - .http 에서 알아야할 필수적인 부분 몇가지를 정리해 놓은 글
 - 빠르게 적용할 일이 있을 때 참고해서 사용하자.
 
 # 방법론
+### [테스트하기 좋은 코드 - 제어할 수 없는 코드 개선](https://jojoldu.tistory.com/676)
+`LocalDateTimw.now()` 와 같이 실행 시점마다 값이 달라지는 값에 의존하는 테스트는 테스트하기 좋지 않은 코드, 제어할 수 없는 코드다.
+테스트 하기 어려운 로직이 도메인 로직에 들어있을 경우, 도메인에 의존한 전반적인 계층에 대한 테스트가 모두 어려워질 수 있다.
+즉 테스트의 어려움은 전파된다.
+![img.png](image/0001.png)
+#### 해결방법 1
+- 생성자, 함수(메소드)의 인자로 테스트하기 어려운 코드의 결과를 받는다.
+  - 함수의 인자가 너무 많아진다고 생각이 들 수 있음
+    - 이때는 DTO 로 묶어서  전달하거나, 생성자 주입을 받아서 사용하거나, 함수 인자의 기본값을 사용하면 됨
+    - (기본값 괜찮네, 테스트 할때는 직접 사용하고 싶은 값 넣어서 사용하면 됨)
+    - 그런데 자바는 python 이나 javascript 처럼 default parameter 를 지원하지 않네
+    - [Does Java Have default parameters? - dev in web](http://dolszewski.com/java/java-default-parameters/) 을 참고해보면 method overloading, null 활용, 빌터 패턴 사용 등을 보여주는데
+    - 빌터 패턴이 제일 바람직해 보임
+  - 만약 위에서의 방법을 안쓴다면, 일단 제어할 수 없는 코드의 위치를 가장 바깥 쪽으로 밀어내는 방법도 있음.
+    - repository 에서 service 로 service 에서 controller 로 해당 코드의 결과 값을 전달하는 곳을 밖으로 빼면
+    - 그 안의 로직은 안전할 수 있음
+    - 하지만 이 또한 controller 와 같은 바깥 로직은 테스트 하기가 어려워지므로 피하는게 좋음
 
-[테스트하기 좋은 코드 - 테스트하기 어려운 코드 - 기억보단 기록을](https://jojoldu.tistory.com/674)
+#### 해결방법 2
+- 의존성 주입을 사용한다.
+- ![img.png](image/0002.png)
+  - 인터페이스 구현체를 만들어서 하나는 메인코드에, 다른 하나는 테스트 코드에 사용
+  - 테스트에서 사용할 구현체에는 명확한 데이터를 전달하면 되므로 테스트 하기 어려운 코드를 테스트 할 수 있게 만들어준다.
+
+#### 결론
+- 디폴트 파라미터 사용과 의존성 주입을 사용하면 된다!
+
+
+### [테스트하기 좋은 코드 - 테스트하기 어려운 코드 - 기억보단 기록을](https://jojoldu.tistory.com/674)
 - 테스트를 위해 구현 설계가 변경될 수 있다. 테스트 코드는 구현의 보조적인 수단이 아니며 같은 레벨로 봐야한다.
 - 좋은 디자인으로 구현된 코드는 대부분 테스트 하기가 쉽다.
 - 테스트는 구현의 보조 수단이 절대 아니며 오히려 구현 설계 smell 을 맡게 해주는 좋은 수단이다.
@@ -41,7 +68,7 @@
 
 <br>
 
-[테스트 코드와 반증가능성에 대한 메모 - 기계인간 John Grip](https://johngrib.github.io/wiki/article/test-code-and-falsifiability/)
+### [테스트 코드와 반증가능성에 대한 메모 - 기계인간 John Grip](https://johngrib.github.io/wiki/article/test-code-and-falsifiability/)
 
 테스트라는게 모든 케이스를 완벽하게 모두 작성하면 좋겠지만 리소스에는 한계가 있기에 우선순위를 고려해서 작성해야하는 경우가 많다. 이런 경우에 어떤 테스트를 더 우선순위에 두고 작성해야하는지 생각해볼 수 있게 해주는 글이었다.
 

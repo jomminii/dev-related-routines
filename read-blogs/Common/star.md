@@ -1,5 +1,18 @@
+# concept
+### [순수 함수란? (함수형 프로그래밍의 뿌리, 함수의 부수효과를 없앤다 - 기본기를 쌓는 정아마추어 코딩블로그](https://jeong-pro.tistory.com/23)
+
+함수형 프로그래밍 : 부수 효과를 없애고 순수 함수를 만들어 모듈화 수준을 높이는 프로그래밍 패러다임
+* 부수 효과 = 외부의 상태를 변경하는 것 또는 함수로 들어온 인자의 상태를 직접 변경하는 것
+* 순수 함수 = 부수효과가 없는 함수 즉, 어떤 함수에 동일한 인자를 주었을 때 항상 같은 값을 리턴하는 함수  + 외부의 상태를 변경하지 않는 함수
+
+[테스트하기 좋은 코드 - 제어할 수 없는 코드 개선](https://jojoldu.tistory.com/676) 를 읽다가 순수함수에 대한 얘기가 나와서 찾아봤다.
+
+>테스트 하기 좋은 코드가 될수록 우리의 코드는 부수효과가 없고, 항상 같은 결과가 반환되는 순수 함수가 될 수 있다.
+테스트 코드 하기 좋은 코드로의 리팩토링은 결국 메인 코드의 품질을 높일 수 있다.
+
+
 # mindset
-[주니어를 위한 성장에 필요한 노력 - 엘키의 주절주절](https://elky84.github.io/2022/08/21/junior_effort)
+### [주니어를 위한 성장에 필요한 노력 - 엘키의 주절주절](https://elky84.github.io/2022/08/21/junior_effort)
 주니어 시기의 성장은 중요함
 성장이 되어있지 않으면 (물)경력이 쌓일수록 위기가 찾아옴
 이 시기를 어떻게 보내야 하는가
@@ -16,7 +29,7 @@
 
 <br>
 
-[Developer Imposter Syndrome - Whatsup](https://medium.com/lemonbase/developer-imposter-syndrome-153f4d94c5d8)
+### [Developer Imposter Syndrome - Whatsup](https://medium.com/lemonbase/developer-imposter-syndrome-153f4d94c5d8)
 - 인프콘에서 가면신드롬이라는 화두를 들은 이후로 관련 내용들이 눈에 더 잘 들어오는데 정리를 너무 잘 해주셨다.
 - 미셀 오바마가 한 말이 제일 마음에 든다. 나에 대한 의심이 찾아올때면 그냥 내 앞에 주어진 일을 하자. 그게 나를 증명할지니!
 
@@ -31,7 +44,7 @@
 
 # logic
 
-[더 나은 쿠폰서비스에 대한 아이디어 기록 - 기계인간](https://johngrib.github.io/wiki/article/coupon-service-and-code-data)
+### [더 나은 쿠폰서비스에 대한 아이디어 기록 - 기계인간](https://johngrib.github.io/wiki/article/coupon-service-and-code-data)
 파이프라인 패턴을 통한 쿠폰 적용 로직
 기존에는 각각의 쿠폰을 만들어서 주문서에 작용하는 형태가 모든 쿠폰의 조건들을 if/else의 향연으로 구성했는데,  쿠폰의 조건 하나하나를 coupon component 로 만들고, 쿠폰을 만들때 필요한 컴포넌트를 pass 하게 되면 apply를 시키는 로직
 불필요한 코드를 줄이고 재사용성을 높일 수 있을듯. 다음에 비슷한 로직을 만들게되면 응용해봐야지

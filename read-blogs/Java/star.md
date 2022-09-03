@@ -1,6 +1,6 @@
 
 ### 정적 팩토리 메서드
-[정적 팩토리 메서드(Static Factory Method)는 왜 사용할까? - Tecoble](https://tecoble.techcourse.co.kr/post/2020-05-26-static-factory-method/)
+### [정적 팩토리 메서드(Static Factory Method)는 왜 사용할까? - Tecoble](https://tecoble.techcourse.co.kr/post/2020-05-26-static-factory-method/)
 - 정적 팩토리 메서드란 객체 생성의 역할을 하는 클래스 메서드
 - 생성자와의 차이
   - 이름을 가질 수 있다
