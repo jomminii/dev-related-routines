@@ -6,12 +6,12 @@
 - 다음에 사용할 때 한번 정독하고 사용해봐야겠다.
 <br>
 
-### [인텔리제이 .http로 postman 대체하는 방법](https://otrodevym.tistory.com/entry/intellij-%EC%9D%B8%ED%85%94%EB%A6%AC%EC%A0%9C%EC%9D%B4-http%EB%A1%9C-postman-%EB%8C%80%EC%B2%B4%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95)
+### [인텔리제이 .http로 postman 대체하는 방법 - 미니 블로그 : 메모하는 습관](https://otrodevym.tistory.com/entry/intellij-%EC%9D%B8%ED%85%94%EB%A6%AC%EC%A0%9C%EC%9D%B4-http%EB%A1%9C-postman-%EB%8C%80%EC%B2%B4%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95)
 - .http 에서 알아야할 필수적인 부분 몇가지를 정리해 놓은 글
 - 빠르게 적용할 일이 있을 때 참고해서 사용하자.
 
 # 방법론
-### [테스트하기 좋은 코드 - 제어할 수 없는 코드 개선](https://jojoldu.tistory.com/676)
+### [테스트하기 좋은 코드 - 제어할 수 없는 코드 개선 - 기억보단 기록을](https://jojoldu.tistory.com/676)
 `LocalDateTimw.now()` 와 같이 실행 시점마다 값이 달라지는 값에 의존하는 테스트는 테스트하기 좋지 않은 코드, 제어할 수 없는 코드다.
 테스트 하기 어려운 로직이 도메인 로직에 들어있을 경우, 도메인에 의존한 전반적인 계층에 대한 테스트가 모두 어려워질 수 있다.
 즉 테스트의 어려움은 전파된다.
